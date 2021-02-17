@@ -1,1 +1,51 @@
-{{date | date: 'short'}}
+<header>
+  <h1>Zadania do wykonania</h1>
+
+</header>
+
+<!-- main input -->
+<div id="mainInput">
+  <input type="text" [(ngModel)]="textInput">
+  <input type="date" [(ngModel)]="dataInput">
+  <button type="submit" (click)="newTask(); sortList()" [disabled]="textInput.length === 0 || dataInput.length === 0">Dodaj
+    zadanie</button>
+</div>
+
+<!-- tasks wraper -->
+
+<div id="taskListWraper">
+
+  <!-- list of tasks which must be done -->
+    Zadania do zrobienia:
+  <span *ngIf="tasks.length === 0"><br>{{newTasks}}</span>
+  <ul>
+    <ng-container *ngFor="let toDo of tasks; let i = index" [ngSwitch]="toDo.done">
+      <li class="taskList" *ngSwitchCase="false">
+        {{i + 1}}. {{toDo.name}} - {{toDo.deadline}}
+        <button class="removeButton" (click)="removeElement(toDo); sortList()">usuń</button>
+        <button class="done" (click)="taskDone(toDo); sortList()">wykonano &#10003;</button>
+      </li>
+    </ng-container>
+  </ul>
+  <br>
+
+  <!-- list of tasks wich are already done -->
+
+  <ul class="taskList" *ngIf="false"> {{oldTasks}}</ul>
+  <div id="daneTasks">
+    Wykonane zadania:
+    <ul>
+      <ng-container *ngFor="let toDo of tasks; let i = index" [ngSwitch]="toDo.done">
+        <li class="taskList" *ngSwitchCase="true">
+          {{toDo.name}} 
+        </li>
+      </ng-container>
+    </ul>    
+  </div>
+
+  <!-- remove button -->
+  <button id="clearList" (click)="removeAllTasks()">Wyczyść całą listę</button>
+</div>
+
+  <!-- footer -->
+<footer> {{date | date: 'yyyy' }} &copy; Wszelkie prawa zastrzeżone </footer>

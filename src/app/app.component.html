@@ -6,7 +6,8 @@
 
     <!-- main input -->
     <div id="mainInput">
-        <input type="text" class="inputElement" id="inputTaskName" placeholder="Wprowadź nowe zadanie" [(ngModel)]="textInput">
+      <input type="text" class="inputElement" id="inputTaskName" placeholder="Wprowadź nowe zadanie"
+        [(ngModel)]="textInput">
       <input type="date" class="inputElement" id="inputDate" [(ngModel)]="dataInput">
       <button type="submit" class="inputElement" id="submitButton" (click)="newTask(); sortList()"
         [disabled]="textInput.length === 0 || dataInput.length === 0">Dodaj zadanie</button>
@@ -23,7 +24,7 @@
       <ul *ngIf="tasks.length !== 0">
         <ng-container *ngFor="let toDo of tasks; let i = index" [ngSwitch]="toDo.done">
           <li class="taskList" *ngSwitchCase="false">
-            {{i + 1}}. {{toDo.name}} - {{toDo.deadline}} 
+            {{i + 1}}. {{toDo.name}} - {{toDo.deadline}}
             <div class="listButtons">
               <button class="done" (click)="taskDone(toDo); sortList()">Zrobione <fa-icon [icon]="faCheck"></fa-icon>
               </button>

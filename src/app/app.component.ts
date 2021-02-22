@@ -30,24 +30,24 @@ export class AppComponent {
     this.tasks.push(task);
     this.textInput = '';
     this.dataInput = '';
-  } 
+  }
 
-  removeAllTasks()  {
+  removeAllTasks() {
     this.tasks = [];
   }
 
   removeElement(task: Task) {
     this.tasks = this.tasks.filter(e => e !== task);
   }
-  taskDone(task: Task)  {
+  taskDone(task: Task) {
     task.done = true;
   }
-  sortList()  {
- 
-    this.tasks = this.tasks.sort((a: Task, b: Task) => 
-    a.done === b.done ? 0 : a.done ? 1 : -1
-  );
-   
+  sortList() {
+
+    this.tasks = this.tasks.sort((a: Task, b: Task) =>
+      a.done === b.done ? 0 : a.done ? 1 : -1
+    );
+
   }
 
 }

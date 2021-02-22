@@ -18,7 +18,6 @@ export class AppComponent {
   date = new Date();
   newTasks = 'Nie masz nowych zadań';
   oldTasks = 'Nie masz żadnych wykonanych zadań';
-  removeButton = '<button class="removeButton">-</button>';
   tasks: Task[] = [];
 
   newTask() {

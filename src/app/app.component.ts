@@ -1,13 +1,17 @@
 import { Task } from './task';
 import { Component } from '@angular/core';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  faCheck = faCheck;
+  faTrash = faTrash;
   dataInput = '';
   textInput = '';
   title = 'another-todo-app';
@@ -15,24 +19,7 @@ export class AppComponent {
   newTasks = 'Nie masz nowych zadań';
   oldTasks = 'Nie masz żadnych wykonanych zadań';
   removeButton = '<button class="removeButton">-</button>';
-
-  tasks: Task[] = [
-    {
-      name: 'Siłownia',
-      deadline: '2020-01-02',
-      done: false,
-    },
-    {
-      name: 'Basen',
-      deadline: '2020-01-03',
-      done: true,
-    },
-    {
-      name: 'Sprzątanie kuwety',
-      deadline: '2020-01-04',
-      done: false,
-    },
-  ];
+  tasks: Task[] = [];
 
   newTask() {
     const task: Task = {

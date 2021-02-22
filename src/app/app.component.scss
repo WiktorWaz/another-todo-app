@@ -1,0 +1,277 @@
+// ---main colors palette--- //
+
+$primary-color: #f4d35e;
+$secondary-color: #2e4057;
+$third-color: #da4167;
+$fourth-color: #083d77;
+$fifth-color: #f6d8ae;
+
+// ---animations--- //
+
+@keyframes slidein {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+// ---singular elements--- //
+
+h1#mainTitle  {
+    font-style: italic;
+    font-weight: 900;
+    border: 8px solid $secondary-color;
+    color: $secondary-color;
+    border-radius: 50px 10px;
+    background-color: $primary-color;
+    width: 70%;
+    margin: 0.5rem auto;
+}
+ul {    
+    list-style-type: none;
+    padding: 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.listTitle, .listTitle   {
+    text-decoration: underline;
+}
+
+
+// ---buttons--- //
+
+button  {
+    cursor: pointer;
+}
+
+#submitButton, #clearList   {
+    background-color: $third-color;
+    border: none;
+    padding: 8px;
+}
+
+#submitButton:disabled  {
+    background-color: #D6B0B9;
+    border: none;
+    color: #fff;
+}
+
+.done, .removeButton    {
+    background-color: $fourth-color;
+    color: #fff;
+    border: #000 solid 2px;
+    margin: 1px;
+   
+}
+
+#clearList  {
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+#clearList::after {
+    content: '';
+    z-index: -1;
+    position: absolute;    
+    background-color: #A32F4C;
+    width: 100%;
+    height: 100%;
+    margin-left: 8px;
+    top: 0;
+    right: -1;    
+}
+
+#clearList:hover::after {
+    animation-name: slidein;
+    animation-duration: 1s;
+}
+
+// ---inputs section--- //
+
+#mainInput  {
+  
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 1rem auto;
+}
+
+#inputTaskName, #inputDate  {
+    background-color: $primary-color;
+    border: 4px solid #2e4057;
+
+}
+
+#inputDate  {
+    width: 100%;
+    text-align: center;
+}
+
+// ---task list section--- //
+
+.inputElement   {
+    margin-bottom: .3rem;
+}
+
+#taskListWraper {
+    line-height: 2em;
+}
+
+.listTitle  {
+    margin: 0;
+}
+
+.taskListDone   {
+    text-decoration: line-through;
+    color: 	#A9A9A9;
+}
+
+// ---media queries--- //
+
+@media (max-width: 320px)   {
+    h1#mainTitle {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 444px)   {
+    h1#mainTitle {
+        width: 224.4px;
+    }
+}
+
+@media (min-width: 620px)   {
+
+    #mainInput {
+       flex-direction: row;
+       justify-content: center;
+       width: 100%;
+    }
+
+    #inputTaskName  {
+        width: 35%;
+    }
+
+    #inputDate  {
+        width: 22%;
+    }
+
+    #inputTaskName, #inputDate  {
+        margin-right: 0.5rem;  
+
+    }
+
+    .listButtons {
+        display: inline-block;
+        margin-left: 1rem;
+    }
+}
+
+@media (min-width: 920px)   {
+
+    #inputTaskName  {
+        width: 30%;
+        height: 2rem;
+        font-size: 1rem;
+    }
+    
+    #inputDate  {
+        width: 15%;
+        font-size: 1rem;
+    }
+
+    #taskListWraper, li.taskList, li.taskListDone {
+        font-size: 1.5rem;
+    }
+
+    .listTitle  {
+        font-size: 1.8rem;
+    }
+    
+    #clearList, .done, .removeButton  {
+        font-size: 1.1rem;
+    }
+
+    footer {
+        font-size: 1.2rem;
+    }
+    
+    h1#mainTitle {
+        font-size: 2.5rem;
+        width: 300px;
+    }
+
+    #inputTaskName  {
+        height: 2.5rem;
+        font-size: 0.8rem;
+    }
+
+}
+
+@media (min-width: 1100px)   {
+    #inputTaskName  {
+        width: 25%;
+
+    }
+    #inputDate  {
+        width: 12%;
+
+    }
+
+    h1#mainTitle {
+        font-size: 3rem;
+        width: 400px;
+    }
+
+    footer {
+        font-size: 1.4rem;
+    }
+
+
+
+
+}
+
+
+@media (min-width: 1500px)   {
+
+    #inputTaskName  {
+        height: 3rem;
+        font-size: 1.2rem;
+    }
+
+    #inputDate  {
+
+        font-size: 1.2rem;
+    }
+
+    #taskListWraper, li.taskList, li.taskListDone  {
+        font-size: 1.8rem;
+    }
+    
+    #clearList, .done, .removeButton  {
+        font-size: 1.3rem;
+    }
+
+    .listTitle  {
+        font-size: 2.1rem;
+    }
+
+    #inputTaskName  {
+        width: 30%;
+
+    }
+    #inputDate  {
+        width: 12%;
+    }
+
+    #submitButton   {
+        width: 8%;
+        font-size: 1rem;
+    }
+}

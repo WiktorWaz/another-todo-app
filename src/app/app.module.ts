@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import localePl from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 registerLocaleData(localePl);
 
 
@@ -15,7 +16,8 @@ registerLocaleData(localePl);
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pl' }
